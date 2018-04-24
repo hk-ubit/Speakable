@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "703983983930",
+    "firebase_url": "https://thespeakable-92635.firebaseio.com",
+    "project_id": "thespeakable-92635",
+    "storage_bucket": "thespeakable-92635.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:703983983930:android:f3ecf20788e69466",
+        "android_client_info": {
+          "package_name": "com.hkubit.thespeakable"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "703983983930-n1ej75ope93imorcghdrjvu2ld42ha6h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hkubit.thespeakable",
+            "certificate_hash": "1b8e877a8daf3cb7536cc35dce75321458daf898"
+          }
+        },
+        {
+          "client_id": "703983983930-p0o1r7fbicp6e09hdq1k9up0bdmmeduo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPb2mzYWrTH1efjdUPkZTryYZEBMJc_2I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "703983983930-p0o1r7fbicp6e09hdq1k9up0bdmmeduo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

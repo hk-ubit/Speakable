@@ -1,0 +1,28 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- "Mark Favorite", should appear as action button if possible -->
+    <item
+        android:id="@+id/empty"
+        android:title="..."
+        android:orderInCategory="101"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_settings_black_24dp">
+
+        <menu>
+
+            <item android:id="@+id/action_logout"
+                android:icon="@android:drawable/ic_menu_preferences"
+                app:showAsAction="ifRoom"
+                android:title="Logout" />
+
+            <item android:id="@+id/action_help"
+                android:icon="@android:drawable/ic_menu_help"
+                app:showAsAction="ifRoom"
+                android:title="Settings" />
+
+        </menu>
+
+    </item>
+
+</menu>
