@@ -12,12 +12,12 @@
         <menu>
 
             <item android:id="@+id/action_logout"
-                android:icon="@android:drawable/ic_menu_preferences"
+                android:icon="@drawable/logout"
                 app:showAsAction="ifRoom"
                 android:title="Logout" />
 
             <item android:id="@+id/action_help"
-                android:icon="@android:drawable/ic_menu_help"
+                android:icon="@drawable/settingsprofile"
                 app:showAsAction="ifRoom"
                 android:title="Settings" />
 

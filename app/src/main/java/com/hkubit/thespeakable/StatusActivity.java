@@ -1,42 +1,50 @@
 package com.hkubit.thespeakable;
 
+import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import org.w3c.dom.Text;
-
 public class StatusActivity extends AppCompatActivity {
 
     private Toolbar mtoolbar;
-    private DatabaseReference mref;
-    private FirebaseUser muser;
-    private Button mupdbtn;
-    private TextInputLayout mstatusinp;
+    private DatabaseReference mDBref;
+    private FirebaseUser mCurrentUser;
+    private Button mUpdateBtn;
+    private TextInputLayout mStatusField;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_status);
-        mtoolbar = (Toolbar)findViewById(R.id.status_toolbar);
+        mtoolbar = (Toolbar) findViewById(R.id.status_toolbar);
         setSupportActionBar(mtoolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        muser = FirebaseAuth.getInstance().getCurrentUser();
-        String userid = muser.getUid();
-        mref = FirebaseDatabase.getInstance().getReference().child("Users").child(userid);
-        mupdbtn = (Button) findViewById(R.id.status_update_btn);
-        mstatusinp = (TextInputLayout) findViewById(R.id.update_status_view);
-        mupdbtn.setOnClickListener(new View.OnClickListener() {
+        mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
+        String userId = mCurrentUser.getUid();
+        mDBref = FirebaseDatabase.getInstance().getReference().child("Users").child(userId);
+        mUpdateBtn = (Button) findViewById(R.id.status_update_btn);
+        mStatusField = (TextInputLayout) findViewById(R.id.status_update_field);
+        mUpdateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mref.child("status").setValue(mstatusinp.getEditText().getText().toString());
+                mDBref.child("status").setValue(mStatusField.getEditText().getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(StatusActivity.this, "Status Updated Succesfully", Toast.LENGTH_SHORT).show();
+                    }
+                });
                 finish();
             }
         });

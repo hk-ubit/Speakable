@@ -6,61 +6,74 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
     tools:context="com.hkubit.thespeakable.SettingsActivity">
-    <de.hdodenhof.circleimageview.CircleImageView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/profile_image"
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/settings_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="My Profile"
+        app:titleTextColor="#ffffff" />
+
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/settings_profile_image"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:src="@drawable/profile"
-        app:civ_border_width="2dp"
-        app:civ_border_color="#FF000000"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        />
+        android:src="@drawable/profile"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp" />
+
     <TextView
+        android:id="@+id/settings_name_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name: Hamza Khan"
-        android:textSize="24dp"
-        android:id="@+id/settings_name"
-        android:layout_below="@id/profile_image"
+        android:layout_below="@id/settings_profile_image"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
         android:textColor="@color/text_icons"
-        />
+        android:textSize="24dp"
+        tools:text="Firstname Lastname"/>
+
     <TextView
+        android:id="@+id/settings_status_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/settings_status"
-        android:text="Hey there am using Speakable"
-        android:textColor="@color/text_icons"
-        android:textSize="24dp"
-        android:layout_below="@id/settings_name"
+        android:layout_below="@id/settings_name_view"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
-        />
+        tools:text="This is a dummy status"
+        android:textColor="@color/text_icons"
+        android:textSize="24dp" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/settings_status"
+        android:layout_below="@id/settings_status_view"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp">
+
         <Button
+            android:id="@+id/settings_change_pic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Change Picture"
             android:background="@color/colorAccent"
-            android:textColor="@color/text_icons"
-            android:id="@+id/change_pic"
-            android:padding="8dp" />
-        <Button
-            android:layout_marginLeft="16dp"
             android:padding="8dp"
+            android:text="Change Picture"
+            android:textColor="@color/text_icons" />
+
+        <Button
+            android:id="@+id/settings_change_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Update Status"
+            android:layout_marginLeft="16dp"
             android:background="@color/colorAccent"
-            android:textColor="@color/text_icons"
-            android:id="@+id/settings_change_status"/>
+            android:padding="8dp"
+            android:text="Update Status"
+            android:textColor="@color/text_icons" />
     </LinearLayout>
 </RelativeLayout>
