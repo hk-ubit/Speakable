@@ -39,11 +39,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.hkubit.thespeakable.WelcomeActivity" />
         </activity>
-        <activity android:name=".SettingsActivity"
-            android:parentActivityName=".WelcomeActivity"/>
+        <activity
+            android:name=".SettingsActivity"
+            android:parentActivityName=".WelcomeActivity" />
         <activity
             android:name=".StatusActivity"
-            android:parentActivityName=".SettingsActivity"></activity>
+            android:parentActivityName=".SettingsActivity" />
+        <activity android:name=".ProfileActivity"></activity>
     </application>
 
 </manifest>

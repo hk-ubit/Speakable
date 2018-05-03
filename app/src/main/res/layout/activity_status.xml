@@ -30,7 +30,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Type your status here"
-            android:inputType="text"/>
+            android:inputType="text"
+            android:maxLength="26"/>
 
     </android.support.design.widget.TextInputLayout>
 

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hkubit.thespeakable.ProfileActivity"
+    android:background="@color/colorPrimary"
+    android:id="@+id/profilepage">
+    <ProgressBar
+        android:id="@+id/profile_progress_bar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:src="@drawable/profile"
+        android:scaleType="fitXY"
+        android:id="@+id/profile_profile_image"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/text_icons"
+        android:layout_below="@id/profile_profile_image"
+        android:text="Your name"
+        android:textSize="24dp"
+        android:layout_marginTop="16dp"
+        android:id="@+id/profile_profile_name"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/profile_profile_name"
+        android:text="Your Status"
+        android:textSize="24dp"
+        android:textColor="@color/text_icons"
+        android:layout_marginTop="16dp"
+        android:id="@+id/profile_profie_status"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/profile_profie_status"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send A Request"
+        android:id="@+id/profile_send_req"
+        android:background="@color/colorAccent"
+        android:textColor="@color/text_icons"
+        android:padding="16dp"
+
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reject Request"
+        android:background="@color/colorAccent"
+        android:textColor="@color/text_icons"
+        android:layout_marginTop="16dp"
+        android:padding="16dp"
+        android:id="@+id/profile_decline_req"
+        android:visibility="gone"/>
+    </LinearLayout>
+</RelativeLayout>

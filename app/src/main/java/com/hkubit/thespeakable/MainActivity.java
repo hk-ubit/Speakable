@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
         mViewPager = (ViewPager) findViewById(R.id.mainactivity_view_pager);
         madapter = new SectionAdapter(getSupportFragmentManager());
-
         mViewPager.setAdapter(madapter);
         mtabLayout = (TabLayout) findViewById(R.id.mainactivity_tab_layout);
         mtabLayout.setTabTextColors(
