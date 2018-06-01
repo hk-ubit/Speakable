@@ -3,8 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:layout_centerInParent="true"
+    android:background="@drawable/splash"
     tools:context="com.hkubit.thespeakable.WelcomeActivity">
+
+    <ImageView
+
+        android:layout_marginTop="64dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/test"
+        />
 
     <TextView
         android:layout_width="wrap_content"
