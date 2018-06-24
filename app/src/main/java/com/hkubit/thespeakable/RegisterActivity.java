@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.HashMap;
 
@@ -94,11 +95,13 @@ public class RegisterActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
                             final FirebaseUser user = mAuth.getCurrentUser();
+                            String user_token = FirebaseInstanceId.getInstance().getToken();
                             String uid = user.getUid();
                             mref = FirebaseDatabase.getInstance().getReference().child("Users").child(uid);
                             HashMap<String, String> map = new HashMap<>();
                             map.put("name", name);
-                            map.put("status", "The Speakable <3 ");
+                            map.put("device_token",user_token);
+                            map.put("status", "The TheSpeakable <3 ");
                             map.put("img", "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png");
                             map.put("thumbimg", "default thumb");
                             mref.setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {

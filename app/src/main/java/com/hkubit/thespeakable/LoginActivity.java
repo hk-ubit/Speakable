@@ -35,6 +35,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,6 +66,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      */
     private UserLoginTask mAuthTask = null;
     private FirebaseAuth mAuth;
+    private DatabaseReference mUserref;
 
     // UI references.
     private AutoCompleteTextView mEmailView;
@@ -79,6 +83,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mtoolbar = (Toolbar) findViewById(R.id.login_toolbar);
         setSupportActionBar(mtoolbar);
         setupActionBar();
+        mUserref = FirebaseDatabase.getInstance().getReference().child("Users");
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.login_email);
         populateAutoComplete();
@@ -335,6 +340,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
+                        String user_token = FirebaseInstanceId.getInstance().getToken();
+                        String CurrentUserid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                        mUserref.child(CurrentUserid).child("device_token").setValue(user_token);
                         Intent mainint = new Intent(LoginActivity.this, MainActivity.class);
                         mainint.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(mainint);

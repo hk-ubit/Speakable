@@ -54,7 +54,7 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = new Intent(SettingsActivity.this, ProfileActivity.class);
-        intent.putExtra("id","XkHKFPT1OCZCSrepN7JOprMJKJt1");
+        intent.putExtra("id","lApGI0dTxuchBgsYKCVDXM8mHxB2");
         startActivity(intent);
         setContentView(R.layout.activity_settings);
         mToolbar = (Toolbar)findViewById(R.id.settings_toolbar);
@@ -92,6 +92,7 @@ public class SettingsActivity extends AppCompatActivity {
         String userid = mCurrentUser.getUid();
 
         mDbref = FirebaseDatabase.getInstance().getReference().child("Users").child(userid);
+        mDbref.keepSynced(true);
         mDbref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
